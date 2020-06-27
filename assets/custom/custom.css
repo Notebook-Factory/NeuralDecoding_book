@@ -1,0 +1,46 @@
+/* Custom CSS */
+
+body {
+    font-family: Content-font, Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 150;
+    line-heigth: 26px:
+	text-rendering: optimizelegibility;
+}
+
+/* Margins*/
+.left {
+    margin: 15px 25px 10px !important;
+    float: center !important;
+}
+
+div.jb_cell {
+    width: 100%;
+}
+
+.c-textbook__page {
+    left: 50px;
+}
+
+.output_png img, p img {
+    max-width: 600px;
+}
+
+.c-textbook__content {
+    width: 900px;
+	margin-left: 30px;
+}
+
+.c-textbook__footer {
+	width: 800px;
+	/* display: inline list-item; */
+	margin-left: 175px;
+}
+
+.c-textbook__sidebar {
+	background-color: rgb(230, 218, 219);
+}
+
+.c-page__nav__prev, .c-page__nav__next {
+	border: 1px solid rgb(230,236,241);
+}
