@@ -14,4 +14,4 @@ Code: https://github.com/NeuroCSUT/RatGPS
 **Purpose**: 
 
 
-A demo of the hosted book: 
+A demo of the hosted book: https://notebook-factory.github.io/NeuralDecoding_book/intro
