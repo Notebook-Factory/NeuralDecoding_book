@@ -13,7 +13,7 @@ prev_page:
 next_page:
   url: /03/subsection/05/sos_notebook5.html
 suffix: .ipynb
-search: figure python plotly matplotlib b hexagon error c d figures calculations average data sum github sos interactive author written com visited frequently different regions space color points falling into areas lower neural activity prediction coordinate code example jupyter notebook script scripts vatlab io docs workflow reproduces paper ardi tampuu last raul vicente using fetched repo neurocsut ratgps ploting library trajectory rat during entire trial not parts arena equal size errors made depicts euclidean seen tend mean point spike counts neurons ms period centered around moment location recorded corresponds where high decreases animal closer wall perpendicular doi org journal pcbi g
+search: figure matplotlib plotly b d python error c regions hexagon sum figures average different data neural activity prediction r github sos interactive author calculations written com trajectory visited frequently space color points falling into areas lower mean coordinate wall code example jupyter notebook script scripts vatlab io docs workflow reproduces paper ardi tampuu last raul vicente using fetched repo neurocsut ratgps ploting library rat during entire trial not parts arena equal size errors made depicts euclidean seen tend point spike counts neurons ms period centered around moment location recorded corresponds where high decreases animal closer perpendicular doi org journal pcbi
 
 comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /content***"
 ---
@@ -51,10 +51,404 @@ comment: "***PROGRAMMATICALLY GENERATED, DO NOT EDIT. SEE ORIGINAL FILES IN /con
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Python-2.7">Python 2.7<a class="anchor-link" href="#Python-2.7"> </a></h2><hr>
-<p>Figure with calculations in Python 2.7 Matplotlib:</p>
+<p>Figure 4.a: <strong>Trajectory of R2192</strong>, Matplotlib</p>
 
 </div>
 </div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-sos"><pre><span></span>%use Python2
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import binned_statistic
+import math
+import scipy.io as scio
+import matplotlib.style
+import matplotlib as mpl
+mpl.style.use(&#39;classic&#39;)
+%matplotlib inline
+
+data = np.load(&quot;R2192_models/window_scan_R2192_1x1400_predictions_v1.npz&quot;)
+y = data[&quot;targets&quot;]
+
+plt.figure(figsize=(5.2,5))
+plt.plot(y[:,0], y[:,1]);
+plt.xlabel(&quot;X-coordinate (cm)&quot;,fontsize=16)
+plt.ylabel(&quot;Y-coordinate (cm)&quot;,fontsize=16)
+plt.xlim([np.min(y[:,0]), np.max(y[:,0])])
+plt.ylim([np.min(y[:,1]), np.max(y[:,1])])
+plt.xticks(fontsize=15)
+plt.yticks(fontsize=15)
+plt.tight_layout()
+plt.title(&quot;(a)&quot;, fontsize=17,y=1.05,x=0.5)
+plt.show()
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../../images/03/subsection/02-04/sos_notebook4_3_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Figure 4.b: <strong>Mean prediction error for diffrent regions for R2192</strong>, Matplotlib</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-sos"><pre><span></span>%use Python2
+import numpy as np
+import matplotlib.pyplot as plt
+
+%matplotlib inline
+from scipy.stats import binned_statistic
+import math
+
+import scipy.io as scio
+
+import matplotlib.style
+# import matplotlib as mpl
+# mpl.style.use(&#39;classic&#39;)
+
+
+# These are the &quot;Tableau 20&quot; colors as RGB.    
+tableau20 = [(31, 119, 180), (174, 199, 232), (255, 127, 14), (255, 187, 120),    
+             (44, 160, 44), (152, 223, 138), (214, 39, 40), (255, 152, 150),    
+             (148, 103, 189), (197, 176, 213), (140, 86, 75), (196, 156, 148),    
+             (227, 119, 194), (247, 182, 210), (127, 127, 127), (199, 199, 199),    
+             (188, 189, 34), (219, 219, 141), (23, 190, 207), (158, 218, 229)]    
+  
+# Scale the RGB values to the [0, 1] range, which is the format matplotlib accepts.    
+for i in range(len(tableau20)):    
+    r, g, b = tableau20[i]    
+    tableau20[i] = (r / 255., g / 255., b / 255.)
+    
+def mse(y, t, axis=2):
+    return (np.square(y - t).mean(axis=axis).mean())
+
+def mean_distance(y, t, axis=2):
+    return np.mean(np.sqrt(np.sum((y - t)**2, axis=axis)))
+
+def median_distance(y, t, axis=2):
+    return np.median(np.sqrt(np.sum((y - t)**2, axis=axis)))
+
+cvfolds = 10
+data = np.load(&quot;R2192_models/window_scan_R2192_1x1400_predictions_v1.npz&quot;)
+
+# print type(data), data.keys()
+
+pred_y = data[&quot;preds&quot;]
+y = data[&quot;targets&quot;]
+targets = data[&quot;targets&quot;]
+
+# print pred_y.shape, targets.shape
+
+seqlen = pred_y.shape[1]
+pred_y = pred_y.reshape((-1, 2))
+
+errors = np.sqrt(np.sum((pred_y - y)**2, axis=1))
+
+# WHAT IS CHANCE LEVEL ACCURACY?
+r_y = y.copy()
+np.random.shuffle(r_y)
+
+
+all_preds = []
+all_errors =[]
+
+# assumes there are predictions from 10 CV-runs in the folder R2192_models
+for i in range(1,11):
+    data = np.load(&quot;R2192_models/window_scan_R2192_1x1400_predictions_v&quot;+str(i)+&quot;.npz&quot;)
+    pr_i = data[&quot;preds&quot;]
+    tgts = data[&quot;targets&quot;]
+    assert np.all(tgts==targets) #should always be same
+    
+    all_preds.append(pr_i)
+    errors_i = np.sqrt(np.sum((pr_i - y)**2, axis=1))
+    all_errors.append(errors_i) # we record errors of each model individually, not the error made by ensemble model	
+
+    
+# print &quot;we have in total error size: &quot;, np.shape(all_preds), np.shape(all_errors), np.mean(np.ravel(all_errors))
+avg_pred = np.mean(all_preds,axis=0) # this gives us the prediction of ensemble model
+avg_errors = np.mean(all_errors,axis=0) #this gives us the average of errors for each location, not error of ensemble model!
+median_errors = np.median(all_errors,axis=0)
+
+
+plt.figure(figsize=(6,5))
+plt.title(&quot; (b) &quot;, fontsize=17,y=1.05,x=0.5)
+plt.hexbin(y[:,0], y[:,1],C=avg_errors, gridsize=15)
+plt.xlabel(&quot;X-coordinate (cm)&quot;,fontsize=16)
+plt.ylabel(&quot;Y-coordinate (cm)&quot;,fontsize=16)
+plt.xticks(fontsize=15)
+plt.yticks(fontsize=15)
+cbar = plt.colorbar( ticks=[5,10,15,20,25])
+cbar.ax.set_yticklabels([5,10,15,20,25],fontsize=14)
+#cbar.ax.set_yticklabels([&quot;5 cm&quot;,&quot;10 cm&quot;,&quot;15 cm&quot;,&quot;20 cm&quot;,&quot;25 cm&quot;],fontsize=14)
+#cbar.ax.set_title(&#39;Mean error&#39;,fontsize=14)
+plt.tight_layout()
+plt.show()
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../../images/03/subsection/02-04/sos_notebook4_5_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Figure 4.c: <strong>Sum neural activity in spikes/s in different regions for R2192</strong>,  Matplotlib</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-sos"><pre><span></span>%use Python2
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+from scipy.stats import binned_statistic
+import math
+import scipy.io as scio
+import matplotlib.style
+# import matplotlib as mpl
+# mpl.style.use(&#39;classic&#39;)
+from sklearn.model_selection import KFold
+
+def min_dist_in_train(node, nodes):
+    nodes = np.asarray(nodes)
+    deltas = nodes - node
+    dist_2 = np.einsum(&#39;ij,ij-&gt;i&#39;, deltas, deltas)
+    return np.min(dist_2)
+
+def nearby_in_train(node, nodes):
+    nodes = np.asarray(nodes)
+    deltas = nodes - node
+    dist_2 = np.einsum(&#39;ij,ij-&gt;i&#39;, deltas, deltas)
+    ordered = sorted(dist_2)
+    ii=0
+    while ordered[ii]&lt;10:
+        ii+=1
+    return ii
+
+raw_y = np.loadtxt(&quot;data/R2192_1x1400_at35_step200_bin100-RAW_pos.dat&quot;)
+raw_feat = np.loadtxt(&quot;data/R2192_1x1400_at35_step200_bin100-RAW_feat.dat&quot;)
+
+closest_points=[]
+count_nearby = []
+activity=[]
+
+kf = KFold(n_splits=10)
+
+
+for i, (rest_idx, test_idx) in enumerate(kf.split(raw_y)):
+    if np.min(test_idx)==0: #first fol left out
+        rest_idx = np.array(sorted(rest_idx)[99:])
+        test_idx = np.array(sorted(test_idx)[99:])
+    elif np.max(test_idx)== raw_y.shape[0]-1: #last fold left out
+        rest_idx = np.array(sorted(rest_idx)[99:])
+        test_idx = np.array(sorted(test_idx)[99:])
+    else:
+        assert (np.min(test_idx)&gt;np.min(rest_idx))
+        assert (np.max(test_idx)&lt;np.max(rest_idx))
+        
+        all_idx = np.array(range(raw_y.shape[0]))
+        #print all_idx[99:np.min(test_idx)].shape,all_idx[np.max(test_idx)+100:].shape
+        rest_idx = np.hstack((all_idx[99:np.min(test_idx)],all_idx[np.max(test_idx)+100:]))
+        test_idx = np.array(sorted(test_idx)[99:])
+#     print &quot;Fold nr &quot;,i,&quot; shapes &quot;, test_idx.shape, rest_idx.shape     
+    test = raw_y[test_idx]
+    rest = raw_y[rest_idx]
+    for loc in test:
+        closest_points.append(min_dist_in_train(loc,rest))
+        count_nearby.append(nearby_in_train(loc,rest))
+    # find the lines in activity matrix, sum and append
+    test_activity = np.sum(raw_feat[test_idx,:],axis=1)
+    activity = np.concatenate([activity,test_activity])
+
+
+# This is based on only train set and on 1400ms windows
+plt.figure(figsize=(6,5))
+plt.title(&quot; (c) &quot;,fontsize=15, y=1.05, x=0.5)
+plt.hexbin(y[:,0], y[:,1],C=activity/1.4, gridsize=15, vmin=5, vmax=70)
+plt.xlim([np.min(y[:,0]), np.max(y[:,0])])
+plt.ylim([np.min(y[:,1]), np.max(y[:,1])])
+plt.xlabel(&quot;X-coordinate (cm)&quot;,fontsize=16)
+plt.ylabel(&quot;Y-coordinate (cm)&quot;,fontsize=16)
+plt.xticks(fontsize=14)
+plt.yticks(fontsize=14)
+cbar = plt.colorbar(ticks=[0,10,20,30,40,50,60,70]);
+cbar.ax.set_yticklabels([10,20,30,40,50,60,70],fontsize=14)
+plt.tight_layout()
+plt.show()
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../../images/03/subsection/02-04/sos_notebook4_7_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Figure 4.d: <b>$Error_y = f(D_{horizontal\_wall})$</b>, Matplotlib</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div class="jb_cell">
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-sos"><pre><span></span>%use Python2
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+from scipy.stats import binned_statistic
+import math
+import scipy.io as scio
+import matplotlib.style
+# import matplotlib as mpl
+# mpl.style.use(&#39;classic&#39;)
+
+xerrors = np.abs(avg_pred[:,0] - y[:,0])
+yerrors = np.abs(avg_pred[:,1] - y[:,1])
+bins = np.arange(0,100.1, 2)
+
+plt.figure(figsize=(6,5))
+
+all_1D_err = np.concatenate((xerrors,yerrors))
+all_distances_to_wall = np.concatenate((50-np.abs(y[:,0]-50),50-np.abs(y[:,1]-50)))
+statistic, bin_edges, binnumber = binned_statistic(all_distances_to_wall, all_1D_err, statistic=&#39;mean&#39;, bins=bins)
+plt.bar(bin_edges[1:]-1.5, statistic, color=tableau20[0])
+plt.title(&quot; (d) &quot;,fontsize=15, y=1.05, x=0.5)
+plt.ylabel(&quot;Prediction error of the coordinate&quot;,fontsize=14)
+plt.xlabel(&quot;Distance to the nearest perpendicular wall (cm)&quot;,fontsize=13)
+plt.ylim([0,12.3])
+plt.xlim([-0.5,26])
+plt.xticks(np.arange(0,24.1,2),fontsize=15)
+plt.yticks(np.arange(0,12.1,2),fontsize=15)
+plt.tight_layout()
+plt.savefig(&quot;error_walls_combined.png&quot;)
+plt.show()
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="jb_output_wrapper }}">
+<div class="output_area">
+
+
+
+<div class="output_png output_subarea ">
+<img src="../../../images/03/subsection/02-04/sos_notebook4_9_0.png"
+>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
 </div>
 </div>
 
