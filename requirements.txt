@@ -1,4 +1,9 @@
-matplotlib
-scipy
+
+scipy==1.2.3
+backports.functools-lru-cache==1.6.1
+cycler==0.10.0
+kiwisolver==1.1.0
+matplotlib==2.2.5
 numpy==1.16.6
+pyparsing==2.4.7
 scikit-learn==0.16.1
