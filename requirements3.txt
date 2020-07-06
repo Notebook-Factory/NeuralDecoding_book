@@ -1,7 +1,7 @@
-sos
-sos-notebook
-sos-python
+sos==0.21.10
+sos-notebook==0.21.10
+sos-python==0.18.4
 plotly==4.5.3
-matplotlib
-numpy
-scipy
+matplotlib==3.2.2
+numpy==1.19.0
+scipy==1.5.1
