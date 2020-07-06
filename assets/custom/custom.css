@@ -18,6 +18,10 @@ div.jb_cell {
     width: 100%;
 }
 
+.c-topbar {
+	padding: 12px 12px 0 70px;
+}
+
 .c-textbook__page {
     left: 50px;
 }
