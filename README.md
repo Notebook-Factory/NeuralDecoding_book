@@ -12,7 +12,6 @@ Code: https://github.com/NeuroCSUT/RatGPS
 ***
 #### Reproduce author scripts:
 
-Notebooks from original repo: 
 [![Binder](https://github.com/zelenkastiot/binder_badges/blob/master/badges/article__plots-binder.svg)](https://mybinder.org/v2/gh/Notebook-Factory/NeuralDecoding_book/master?filepath=content%2F03%2Fsubsection%2F01-03%2Farticle_plots.ipynb) **:Contains source code for Figures 1 and 3**  <br>
 [![Binder](https://github.com/zelenkastiot/binder_badges/blob/master/badges/results-binder.svg)](https://mybinder.org/v2/gh/Notebook-Factory/NeuralDecoding_book/master?filepath=content%2F03%2Fsubsection%2F02-04-05%2Fresults.ipynb) **:Contains source code for Figures 2 and 4** <br>
 [![Binder](https://github.com/zelenkastiot/binder_badges/blob/master/badges/gradients-binder.svg)](https://mybinder.org/v2/gh/Notebook-Factory/NeuralDecoding_book/master?filepath=content%2F03%2Fsubsection%2F02-04-05%2Fgradients.ipynb) **:Contains source code for Figures 5 and 6** <br>
