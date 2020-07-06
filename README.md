@@ -9,9 +9,9 @@ Paper: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.10
 
 Code: https://github.com/NeuroCSUT/RatGPS
 
-
-#### Reproduce author scripts:
 ***
+#### Reproduce author scripts:
+
 [![Binder](https://github.com/zelenkastiot/binder_badges/blob/master/badges/article__plots-binder.svg)](https://mybinder.org/v2/gh/Notebook-Factory/NeuralDecoding_book/master?filepath=content%2F03%2Fsubsection%2F01-03%2Farticle_plots.ipynb)
 [![Binder](https://github.com/zelenkastiot/binder_badges/blob/master/badges/results-binder.svg)](https://mybinder.org/v2/gh/Notebook-Factory/NeuralDecoding_book/master?filepath=content%2F03%2Fsubsection%2F02-04-05%2Fresults.ipynb)
 [![Binder](https://github.com/zelenkastiot/binder_badges/blob/master/badges/gradients-binder.svg)](https://mybinder.org/v2/gh/Notebook-Factory/NeuralDecoding_book/master?filepath=content%2F03%2Fsubsection%2F02-04-05%2Fgradients.ipynb)
@@ -21,9 +21,9 @@ Notebooks from original repo:
 - [``RatGPS/2D/results.ipynb``](https://github.com/NeuroCSUT/RatGPS/blob/master/2D/results.ipynb) Contains source code for Figures 2 and 4 
 - [``RatGPS/2D/gradients.ipynb``](https://github.com/NeuroCSUT/RatGPS/blob/master/2D/gradients.ipynb) Contains source code for Figures 5 and 6
 
-
-#### Reproduce Jupyter-book figures:
 ***
+#### Reproduce Jupyter-book figures:
+
 [![Binder](https://github.com/zelenkastiot/binder_badges/blob/master/badges/Figure1-binder.svg)](https://mybinder.org/v2/gh/Notebook-Factory/NeuralDecoding_book/master?filepath=content%2F03%2Fsubsection%2F01-03%2Fsos_notebook1.ipynb) **: Accurate decoding of position with a RNN** <br> 
 [![Binder](https://github.com/zelenkastiot/binder_badges/blob/master/badges/Figure2-binder.svg)](https://mybinder.org/v2/gh/Notebook-Factory/NeuralDecoding_book/master?filepath=content%2F03%2Fsubsection%2F02-04-05%2Fsos_notebook2.ipynb) **: Comparison of RNN and Bayesian decoders** <br> 
 [![Binder](https://github.com/zelenkastiot/binder_badges/blob/master/badges/Figure3-binder.svg)](https://mybinder.org/v2/gh/Notebook-Factory/NeuralDecoding_book/master?filepath=content%2F03%2Fsubsection%2F01-03%2Fsos_notebook3.ipynb) **: Spatial decoding across animals in 2D and 1D environments** -  <br> 
