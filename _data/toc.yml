@@ -10,29 +10,33 @@
 - title: Abstract
   url: /01/abstract
   not_numbered: true
+
+- title: Fig 1. Accurate decoding of position with a RNN
+  url: /03/subsection/01-03/sos_notebook1
+  not_numbered: true
+
+- title: Fig 2. Comparison of RNN and Bayesian decoders
+  url: /03/subsection/02-04-05/sos_notebook2
+  not_numbered: true
+     
+- title: Fig 3. Spatial decoding across animals in 2D and 1D environments
+  url: /03/subsection/01-03/sos_notebook3
+  not_numbered: true  
   
-- title: Theory
-  url: /02/theory
+- title: Fig 4. Analysis of the errors in function of location and neural activity for rat R2192
+  url: /03/subsection/02-04-05/sos_notebook4
   not_numbered: true
-   
-- title: Interactive Figures
-  url: /03/00
+  
+- title: Fig 5. Results of knockout analysis
+  url: /03/subsection/02-04-05/sos_notebook5
   not_numbered: true
-  expand_sections: false
-  sections:
-   - title: Fig 1. Accurate decoding of position with a RNN
-     url: /03/subsection/01-03/sos_notebook1
-   - title: Fig 2. Comparison of RNN and Bayesian decoders
-     url: /03/subsection/02-04-05/sos_notebook2
-   - title: Fig 3. Spatial decoding across animals in 2D and 1D environments
-     url: /03/subsection/01-03/sos_notebook3
-   - title: Fig 4. Analysis of the errors in function of location and neural activity for rat R2192
-     url: /03/subsection/02-04-05/sos_notebook4
-   - title: Fig 5. Results of knockout analysis
-     url: /03/subsection/02-04-05/sos_notebook5       
-   - title: Fig 6. Gradient analysis, Sensitivity decreases with activity
-     url: /03/subsection/02-04-05/sos_notebook6 
+  
 - divider: true
+
+- title: Published paper
+  url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006822#abstract0
+  external: true
+  not_numbered: true
 
 - title: GitHub repository
   url: https://github.com/NeuroCSUT/RatGPS
