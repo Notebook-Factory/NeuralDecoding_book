@@ -11,6 +11,10 @@
   url: /01/abstract
   not_numbered: true
 
+- divider: true
+
+- header: Figures 
+
 - title: Fig 1. Accurate decoding of position with a RNN
   url: /03/subsection/01-03/sos_notebook1
   not_numbered: true
