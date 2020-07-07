@@ -37,6 +37,8 @@
   
 - divider: true
 
+- header: External links 
+
 - title: Published paper
   url: https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006822#abstract0
   external: true
