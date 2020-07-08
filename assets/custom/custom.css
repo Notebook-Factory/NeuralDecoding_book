@@ -44,6 +44,10 @@ div.top-navbar {
 	margin-left: 175px;
 }
 
+main.jupyter-page {
+   width: 140%;
+}
+
 /* .c-textbook__sidebar {
 	background-color: rgb(230, 218, 219);
 }
