@@ -1,7 +1,7 @@
 Welcome to an interactive Jupyter Book for the research paper: <br> <br> 
 **Tampuu A, Matiisen T, Ólafsdóttir HF, Barry C, Vicente R (2019) <br> 
-[*Efficient neural decoding of self-location with a deep recurrent network*](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006822#abstract0). <br> 
-<br> PLoS Comput Biol 15(2): e1006822. https://doi.org/10.1371/journal.pcbi.1006822**
+*"Efficient neural decoding of self-location with a deep recurrent network"* <br> 
+PLoS Comput Biol 15(2): e1006822. https://doi.org/10.1371/journal.pcbi.1006822**
 
 It reports that the application of RNNs to neural data allowed flexible integration of temporal context, yielding improved accuracy relative to the more commonly used Bayesian approaches and opens new avenues for exploration of the neural code.
 
