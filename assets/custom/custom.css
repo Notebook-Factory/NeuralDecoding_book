@@ -21,6 +21,10 @@ div.top-navbar {
     padding: 12px 12px 0 70px;
 }
 
+div.page-title {
+    width: 130%; 	
+}
+
 .c-topbar {
    padding: 12px 12px 0 70px;
 }	
@@ -29,10 +33,10 @@ div.top-navbar {
     left: 50px;
 }
 
-.output_png img, p img {
+/*.output_png img, p img {
     max-width: 600px;
 }
-
+*/
 .c-textbook__content {
     width: 900px;
     margin-left: 30px;
@@ -44,9 +48,6 @@ div.top-navbar {
 	margin-left: 175px;
 }
 
-main.jupyter-page {
-   width: 140%;
-}
 
 /* .c-textbook__sidebar {
 	background-color: rgb(230, 218, 219);
