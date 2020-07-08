@@ -1,22 +1,22 @@
 /* Custom CSS */
 
-body {
+/* body {
     font-family: Content-font, Roboto, sans-serif;
     font-size: 16px;
     font-weight: 150;
     line-heigth: 26px:
 	text-rendering: optimizelegibility;
-}
+} */
 
 .left {
     margin: 15px 25px 10px !important;
     float: center !important;
 }
 
-div.jb_cell {
+/* div.jb_cell {
     width: 100%;
 }
-
+ */
 div.top-navbar {
     padding: 12px 12px 0 70px;
 }
@@ -35,7 +35,7 @@ div.top-navbar {
 
 .c-textbook__content {
     width: 900px;
-	margin-left: 30px;
+    margin-left: 30px;
 }
 
 .c-textbook__footer {
@@ -44,10 +44,11 @@ div.top-navbar {
 	margin-left: 175px;
 }
 
-.c-textbook__sidebar {
+/* .c-textbook__sidebar {
 	background-color: rgb(230, 218, 219);
 }
 
 .c-page__nav__prev, .c-page__nav__next {
 	border: 1px solid rgb(230,236,241);
 }
+ */
