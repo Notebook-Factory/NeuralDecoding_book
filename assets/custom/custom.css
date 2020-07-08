@@ -21,9 +21,9 @@ div.top-navbar {
     padding: 12px 12px 0 70px;
 }
 
-div.page-title {
+/* div.page-title {
     width: 130%; 	
-}
+} */
 
 .c-topbar {
    padding: 12px 12px 0 70px;
@@ -38,12 +38,10 @@ div.page-title {
 }
 */
 .c-textbook__content {
-    width: 900px;
     margin-left: 30px;
 }
 
 .c-textbook__footer {
-	width: 800px;
 	/* display: inline list-item; */
 	margin-left: 175px;
 }
