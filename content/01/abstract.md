@@ -1,5 +1,5 @@
 ***
-*Ardi Tampuu* <sup>1</sup>| *Tambet Matiisen* <sup>1</sup>| *H. Freyja Ólafsdóttir* <sup>2</sup> | *Caswell Barry* <sup>2</sup>| *Raul Vicente* <sup>1</sup><br> 
+<p style="color:rgb(47,79,79);font-size:1.9vh;"> <i>Ardi Tampuu</i><sup>1</sup>| <i>Tambet Matiisen</i> <sup>1</sup>| <i>H. Freyja Ólafsdóttir</i> <sup>2</sup> | <i>Caswell Barry</i> <sup>2</sup>| <i>Raul Vicente</i> <sup>1</sup><br> </p>
 
 
 
@@ -19,13 +19,19 @@ RNNs to neural data allowed flexible integration of temporal context, yielding i
 new avenues for exploration of the neural code.
 <br />
 <br />
-*Areas* 
-<br />
-*Neurons, Recurrent neural networks, Action potentials, Memory, Neural networks , Animal behavior , Machine learning algorithms, Bayesian method*
+
+**Areas:** <br> 
+Neurons, Recurrent neural networks, Action potentials, Memory, Neural networks , Animal behavior , Machine learning algorithms, Bayesian method
 
 
 
-**Citation**:  Tampuu A, Matiisen T, Ólafsdóttir HF, Barry C, Vicente R (2019) Efficient neural decoding of self-location with a deep recurrent network. 
-PLoS Comput Biol 15(2): e1006822. https://doi.org/10.1371/journal.pcbi.1006822 <br> 
-**Published**: February 15, 2019 <br> 
-**email**: raul.vicente.zafra@ut.ee (RV); caswell.barry@ucl.ac.uk (CB) <br>
+
+**Citation**:  
+Tampuu A, Matiisen T, Ólafsdóttir HF, Barry C, Vicente R (2019) <br> 
+<i>"Efficient neural decoding of self-location with a deep recurrent network"</i><br> 
+PLoS Comput Biol 15(2): e1006822. https://doi.org/10.1371/journal.pcbi.1006822
+
+**Published**: <br> 
+February 15, 2019 
+
+raul.vicente.zafra@ut.ee (RV); caswell.barry@ucl.ac.uk (CB) <br>
