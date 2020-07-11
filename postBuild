@@ -3,3 +3,6 @@ python3 -m sos_notebook.install
 # Download data for gradients.ipynb notebook 
 wget -O grads_R2192_1x1400_v1.zip https://osf.io/enz6m/download/
 unzip -j grads_R2192_1x1400_v1.zip -d $HOME/content/03/subsection/02-04-05/R2192_models/
+
+# Enable jupyterlab-sos
+jupyter labextension install jupyterlab-sos 
