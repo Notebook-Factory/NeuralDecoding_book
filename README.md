@@ -31,3 +31,10 @@ Jupyter-book: https://notebook-factory.github.io/NeuralDecoding_book/intro
 [![Binder](https://github.com/zelenkastiot/binder_badges/blob/master/badges/Figure6-binder.svg)](https://mybinder.org/v2/gh/Notebook-Factory/NeuralDecoding_book/master?filepath=content%2F03%2Fsubsection%2F02-04-05%2Fsos_notebook6.ipynb) *: Gradient analysis, Sensitivity decreases with activity*
 
 
+<br>
+
+<hr>
+<p align="center">
+<img src="https://avatars3.githubusercontent.com/u/63861117?s=200&v=4" style="width:40px;"></img> <br>
+This repository is created by <a href="https://github.com/Notebook-Factory">Notebok-Factory</a>. 
+</p>
