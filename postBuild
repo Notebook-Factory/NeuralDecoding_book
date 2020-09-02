@@ -1,4 +1,5 @@
 python3 -m sos_notebook.install
+pip2 install -U scikit-learn==0.16.1
 
 # Download data for gradients.ipynb notebook 
 wget -O grads_R2192_1x1400_v1.zip https://osf.io/enz6m/download/
