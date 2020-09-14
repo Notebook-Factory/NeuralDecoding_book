@@ -81,6 +81,11 @@ use_thebelab_button: true                # If 'true', display a button to allow 
 thebelab_button_text: Interact Inline          # The text to display inside the Thebelab initialization button
 codemirror_theme: abcdef                     # Theme for codemirror cells, for options see https://codemirror.net/doc/manual.html#config
 
+
+use_toggle_code_button: true
+toggle_code_button_text: Toggle code
+
+
 # nbinteract settings
 use_show_widgets_button: true                # If 'true', display a button to allow in-page running code cells with nbinteract
 
