@@ -9,4 +9,4 @@ This Jupyter Book reproduces their paper figures, and lets you interact with the
 
 All of the code is contained inside one Jupyter notebook that uses [SoS](https://vatlab.github.io/sos-docs/running.html#content) (Script of Scripts) workflow to enable communication between Python2 and Python3 kernels.
 
-<img src="images/plos.png" style="width:190px;height:auto;"  align="right">
+<img src="images/plos2.png" style="width:190px;height:auto;"  align="right">
