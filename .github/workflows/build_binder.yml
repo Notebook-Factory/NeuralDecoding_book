@@ -1,7 +1,7 @@
 name: Binder
 on:
   schedule:
-  - cron: "15 22 * * 5"
+  - cron: "14 15 * * 5"
        
 jobs:
   Create-MyBinderOrg-Cache:
